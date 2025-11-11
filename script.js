@@ -5,22 +5,37 @@ const botaoFoco = document.querySelector(".app__card-button--foco");
 const imagem = document.querySelector(".app__image");
 const titulo = document.querySelector(".app__title")
 
+botaoFoco.classList.remove('active')
+
 
 
 botaoFoco.addEventListener("click", function alteraFoco(){
     alterarContexto('foco')
+    botaoFoco.classList.add("active")
+    botaoDescansoLongo.classList.remove("active")
+    botaoDescansoCurto.classList.remove("active")
     
 });
 
 
 botaoDescansoCurto.addEventListener("click", function descansoCurto(){
+    botaoDescansoCurto.classList.add("active")
+    botaoFoco.classList.remove('active')
+    botaoDescansoLongo.classList.remove("active")
     alterarContexto('descanso-curto')
     alteraTitulo("Texto alterado")
+    
+   
+    
     
 });
 
 botaoDescansoLongo.addEventListener("click", function descansoLongo(){
+    botaoFoco.classList.remove('active')
+    botaoDescansoCurto.classList.remove("active")
+    botaoDescansoLongo.classList.add('active')
     alterarContexto('descanso-longo')
+    
 })
 
 function alterarContexto(contexto){
@@ -41,6 +56,7 @@ function alterarContexto(contexto){
             break;
 
     }
+    
 
 };
 
